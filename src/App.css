@@ -1,0 +1,9 @@
+.app {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  display: grid;
+  justify-items: center;
+}
+.app-container {
+  display: flex;
+}

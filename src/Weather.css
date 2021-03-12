@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  justify-content: center;
+  gap: 5px;
+}
+.date {
+  margin-bottom: 10px;
+}
+.day {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.location {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.weather-info {
+  display: grid;
+  justify-content: center;
+}
+.weather-icon {
+  width: 80%;
+  height: auto;
+  justify-self: center;
+}
+.temp {
+  font-size: 4rem;
+  text-align: center;
+}
+.description {
+  text-transform: capitalize;
+  font-size: 2rem;
+  text-align: center;
+}

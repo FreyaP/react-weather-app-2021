@@ -1,0 +1,17 @@
+.current-weather {
+  border-radius: 8px;
+  width: fit-content;
+  display: grid;
+}
+.theme-button {
+  padding: 8px 8px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #f0e4d7;
+  font-weight: bold;
+  outline: none;
+}
+.theme-button:hover {
+  cursor: pointer;
+}

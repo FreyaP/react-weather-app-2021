@@ -1,0 +1,10 @@
+.daily-weather {
+  border-radius: 8px;
+  width: fit-content;
+  display: grid;
+}
+.daily-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
