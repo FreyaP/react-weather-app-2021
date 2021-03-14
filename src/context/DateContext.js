@@ -7,19 +7,20 @@ export const DateContext = React.createContext()
 export function DateProvider({ children }) {
     const [todayDate, setTodayDate] = useState("");
     const [day, setDay] = useState("");
-    const [month, setMonth] = useState("");
-    const today = new Date();
-    let dayIndex = today.getDay();
-    const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-    ];  
+    //const [month, setMonth] = useState("");
+
         useEffect(() => {
+            const today = new Date();
+            let dayIndex = today.getDay();
+            const days = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+            ];  
         const months = [
             "Jan",
             "Feb",
@@ -40,9 +41,9 @@ export function DateProvider({ children }) {
         let date = today.getDate();
 
         setDay(days[dayIndex]);
-        setMonth(months[monthIndex]);
+        let month = months[monthIndex];
         setTodayDate(`${date} ${month}, ${year}`)
-    });
+    },[]);
     
     
 
@@ -50,7 +51,7 @@ export function DateProvider({ children }) {
     //Send muliple values in object
     return (
         
-        <DateContext.Provider value={{todayDate, day, days, dayIndex }}>
+        <DateContext.Provider value={{todayDate, day }}>
             {children}
         </DateContext.Provider>
         

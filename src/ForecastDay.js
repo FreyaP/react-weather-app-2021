@@ -1,11 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './ForecastDay.css';
-import { DateContext } from './context/DateContext';
+//import { DateContext } from './context/DateContext';
 //import { useTheme } from './context/ThemeContext';
 
 export default function ForecastDay(props) {
-    const { days, dayIndex } = useContext(DateContext)
-    let daysAhead = props.index;
+  //const { days, dayIndex } = useContext(DateContext)
+  let dayIndex = new Date().getDay();
+  const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+  ];
+  let daysAhead = props.index;
     let index;
     let indexTotal = daysAhead + dayIndex;
     if(indexTotal >= 7) {
