@@ -1,6 +1,6 @@
 //Use this file as template for other Context Providers
 import React, { useContext, useState } from 'react';
-import { Moon, Sun } from 'react-feather';
+
 
 //Create the context
 const ThemeContext = React.createContext()

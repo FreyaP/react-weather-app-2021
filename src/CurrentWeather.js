@@ -3,6 +3,8 @@ import { Moon, Sun } from 'react-feather';
 import { LoadingContext } from './context/LoadingContext';
 import { useTheme, useThemeUpdate } from './context/ThemeContext';
 import './CurrentWeather.css';
+//import SearchCity from './SearchCity'; 
+//searching and loading data in SearchCity but not raising. Changing direction.
 import Weather from './Weather'
 
 //Import the (custom) hooks that you need above
@@ -12,6 +14,7 @@ export default function CurrentWeather() {
     const { response, loaded } = useContext(LoadingContext)
     const { themeName, darkTheme } = useTheme()
     const toggleTheme = useThemeUpdate()
+    
     const light = "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)";
     const themeStyles = {
         backgroundImage: darkTheme ? "linear-gradient(to top, #30cfd0 0%, #330867 100%)" : light,
@@ -22,6 +25,7 @@ export default function CurrentWeather() {
     let themeIcon = themeName ? <Sun /> : <Moon />;
     let [city, setCity] = useState({});
     let [weather, setWeather] = useState({});
+    
 
     useEffect(() => {
         if(!loaded || weather.weather !== undefined) {
@@ -46,11 +50,14 @@ export default function CurrentWeather() {
                 wind_spd: wind_spd
             });
         }}, [loaded, weather, response]);
-
+        
+       
+            
     return (
         
             <div className="current-weather" style={themeStyles}>
             <button className="theme-button" onClick={toggleTheme}>{themeIcon}</button>
+                
                 <Weather city={city} weather={weather} />
             </div>
         
