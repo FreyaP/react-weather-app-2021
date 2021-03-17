@@ -55,7 +55,7 @@ if(location === 'current') {
 return (
     setLocation(undefined)
 )
-}, [location])
+}, [location, searchCity])
 
 
 
