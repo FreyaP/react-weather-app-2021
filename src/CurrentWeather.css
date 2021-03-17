@@ -1,17 +1,41 @@
+.button-container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 10px;
+}
+
 .current-weather {
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   width: fit-content;
   display: grid;
 }
 .theme-button {
-  padding: 8px 8px;
+  width: -webkit-fill-available;
+  padding: 10px 10px;
   margin-bottom: 1rem;
   border-radius: 8px;
   border: none;
   background-color: #f0e4d7;
   font-weight: bold;
   outline: none;
+  margin-bottom: 0;
 }
 .theme-button:hover {
+  cursor: pointer;
+}
+.change-location {
+  width: -webkit-fill-available;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: #f0e4d7;
+  margin-bottom: 0;
+}
+.change-location:hover {
   cursor: pointer;
 }

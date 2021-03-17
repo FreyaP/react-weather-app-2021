@@ -1,11 +1,6 @@
-.app {
+.app-container {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  display: grid;
-  justify-items: center;
-  width: auto;
-  height: 100vh;
-}
-.app-container {
   display: flex;
+  justify-content: center;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 import './ForecastDay.css';
-//import { DateContext } from './context/DateContext';
-//import { useTheme } from './context/ThemeContext';
+
 
 export default function ForecastDay(props) {
-  //const { days, dayIndex } = useContext(DateContext)
+
   let dayIndex = new Date().getDay();
   const days = [
       "Sunday",
@@ -26,7 +25,7 @@ export default function ForecastDay(props) {
     
     
     let forecastDay = days[index];
-    //const { darkTheme } = useTheme();
+    
 
     //Add box shadow theme for light/dark mode
     

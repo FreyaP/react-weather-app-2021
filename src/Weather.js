@@ -25,9 +25,9 @@ const { todayDate, day } = useContext(DateContext)
                 <p className="description">{weather.weather.description}</p>
             </div>
             <div className="more-details">
-            <p className="feels-like">Feels like {Math.floor(weather.feels_like)}°C</p>
-            <p className="vis"><Wind /> {weather.wind_spd} km</p>
-            <p className="precip"><Umbrella /> {weather.precip}mm</p>
+            <p className="feels-like">High {Math.floor(weather.max_temp)} | Low {Math.floor(weather.min_temp)}</p>
+            <p className="vis"><Wind /> {Math.round(weather.wind_spd)} km</p>
+            <p className="precip"><Umbrella /> {Math.round(weather.precip)}mm</p>
             </div>
 
         </div>

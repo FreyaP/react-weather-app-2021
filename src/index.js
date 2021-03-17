@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { LoadingProvider } from './context/LoadingContext';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <LoadingProvider>
     <App />
-    </LoadingProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

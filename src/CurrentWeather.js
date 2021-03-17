@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'react-feather';
-import { LoadingContext } from './context/LoadingContext';
+
 import { useTheme, useThemeUpdate } from './context/ThemeContext';
 import './CurrentWeather.css';
-//import SearchCity from './SearchCity'; 
+
 //searching and loading data in SearchCity but not raising. Changing direction.
 import Weather from './Weather'
 
 //Import the (custom) hooks that you need above
 //Define them in the function below
 
-export default function CurrentWeather() {
-    const { response, loaded } = useContext(LoadingContext)
+export default function CurrentWeather({ response, toggleSearchStatus }) {
+    
     const { themeName, darkTheme } = useTheme()
     const toggleTheme = useThemeUpdate()
     
@@ -19,7 +19,7 @@ export default function CurrentWeather() {
     const themeStyles = {
         backgroundImage: darkTheme ? "linear-gradient(to top, #30cfd0 0%, #330867 100%)" : light,
         color: darkTheme ? "#FFFFFF" : "#333",
-        padding: "3rem 5rem",
+        padding: "2rem 5rem",
         margin: "2rem 0rem"
     }
     let themeIcon = themeName ? <Sun /> : <Moon />;
@@ -28,36 +28,38 @@ export default function CurrentWeather() {
     
 
     useEffect(() => {
-        if(!loaded || weather.weather !== undefined) {
+        if(weather.weather !== undefined) {
             return null;
         } else {
             let {
-                country_code,
-                city_name,
                 temp, //celsius
-                app_temp, //feels like temp
+                max_temp, //feels like temp
+                min_temp,
                 weather, //icon, code, description
                 precip, //mm/hr
                 wind_spd, //km
             } = response.data[0];
 
-            setCity({city_name: city_name, country_code: country_code});
+            setCity({city_name: response.city_name, country_code: response.country_code});
             setWeather({
                 temp: temp,
-                feels_like: app_temp,
+                max_temp: max_temp,
+                min_temp: min_temp,
                 weather: weather,
                 precip: precip,
                 wind_spd: wind_spd
             });
-        }}, [loaded, weather, response]);
+        }}, [weather, response]);
         
-       
+   
             
     return (
         
             <div className="current-weather" style={themeStyles}>
+                <div className='button-container'>
             <button className="theme-button" onClick={toggleTheme}>{themeIcon}</button>
-                
+            <button className="change-location" onClick={toggleSearchStatus}>Change Location</button>
+            </div>  
                 <Weather city={city} weather={weather} />
             </div>
         
